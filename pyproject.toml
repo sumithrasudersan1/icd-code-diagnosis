@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "icd-code-diagnosis"
+version = "0.1.0"
+description = ""
+authors = ["sumithrasudersanam <Ssudersanam@trymool.ai>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0.1"
+tesseract = "^0.1.3"
+pytesseract = "^0.3.10"
+pillow = "^10.3.0"
+torch = "^2.3.0"
+opencv-python = "^4.9.0.80"
+pandas = "^2.2.2"
+nltk = "^3.8.1"
+scikit-learn = "^1.4.2"
+pdf2image = "^1.17.0"
+ocrmypdf = "^16.2.0"
+
+[tool.poetry.group.dev.dependencies]
+openai = "^1.25.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
