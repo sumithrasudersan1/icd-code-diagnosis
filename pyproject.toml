@@ -6,7 +6,7 @@ authors = ["sumithrasudersanam <Ssudersanam@trymool.ai>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 python-dotenv = "^1.0.1"
 tesseract = "^0.1.3"
 pytesseract = "^0.3.10"
