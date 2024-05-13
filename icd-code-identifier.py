@@ -117,7 +117,7 @@ def main():
 
     add_files = False
     #icd_file_ref = "icd-codes/Section111ValidICD10-Jan2024.txt"
-    icd_file_ref = "sample-files\DE_ID DOC026.txt"
+    icd_file_ref = "sample-files/DE_ID DOC026.txt"
     continue_to_search = True
     try:
         vector_store = client.beta.vector_stores.retrieve(os.getenv("VECTOR_STORE"))
