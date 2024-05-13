@@ -4,7 +4,7 @@ import dotenv
 import glob
 from dotenv import load_dotenv
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = "sk-proj-"+os.getenv("OPENAI_API_KEY")
 client = OpenAI()
 
 def add_files_to_vector(vectorId,file_list):
