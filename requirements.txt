@@ -8,3 +8,4 @@ pandas==2.2.2
 nltk==3.8.1
 pdf2image==1.17.0
 ocrmypdf==16.2.0
+openai==1.25.0
