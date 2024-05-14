@@ -42,22 +42,24 @@ def get_annotated_files(annotations):
         return list_of_files_cited, citations
     else:
         return None,None
-def start_chat(thread_id,assistant_id):
+def start_chat(thread_id,assistant_id,file_ref):
     while True:
         prompt = input("What do you want to search? ")
         if prompt.lower() == "quit":
             break
+        qna = f"Refer to file {file_ref} in the thread. {prompt}"
         message = client.beta.threads.messages.create(
             thread_id=thread_id,
             role="user",
-            content=prompt,
+            content=qna,
         )
         #into universal medical codes to maintain accurate medical records
         run = client.beta.threads.runs.create_and_poll(
             thread_id=thread_id,
             assistant_id=assistant_id,
             instructions="You are a medical coding analyst agent. your job is to analyze patient's medical document \
-                          such as physician's notes, lab reports, procedures and diagnoses and match the medical conditions with Section111ValidICD10 \
+                          such as physician's notes, lab reports, procedures and diagnoses attached in the thread \
+                          and match the medical conditions with the relavant ICD codes in Section111ValidICD10 \
                           Provide a proper justification of why the ICD code has been selected. \
                           Provide your response in a table format with S.No, ICD code, Reason, Presence in Report \
                           you also need to validate the list of medical codes given by the reviewer and check the same against the document for its availability. \
@@ -136,7 +138,7 @@ def main():
                 print("Start chat..")
                 assistant = client.beta.assistants.retrieve(os.getenv("ASSISTANT"))
                 assistant_id = assistant.id
-                start_chat(thread_id,assistant_id)
+                start_chat(thread_id,assistant_id,file_ref)
             except Exception as ex:
                 print("Something went wrong while initiating chat...",ex)
     except Exception as ex:
