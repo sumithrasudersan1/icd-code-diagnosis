@@ -118,7 +118,7 @@ def main():
     add_files = False
     #icd_file_ref = "icd-codes/Section111ValidICD10-Jan2024.txt"
     file_ref = input("Refer the file to query ?")
-    icd_file_ref = f"sample-files\{file_ref}"
+    icd_file_ref = f"sample-files/{file_ref}"
     print(f"Refering the file {icd_file_ref}")
     continue_to_search = True
     try:
